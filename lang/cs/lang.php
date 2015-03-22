@@ -6,8 +6,8 @@
  */
 
 // custom language strings for the plugin
-$lang['show'] = 'Show';
-$lang['hide'] = 'Hide';
+$lang['show'] = 'Zobraz';
+$lang['hide'] = 'Skryj';
 
 $lang['js']['show'] = $lang['show'];
 $lang['js']['hide'] = $lang['hide'];

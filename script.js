@@ -5,15 +5,19 @@
  */
 
 function fksInfoMore(e) {
-    var elem = jQuery( this );
-    var content = elem.parent().find('div').eq(0);
-    if (elem.html() === 'show'){
+    var show_str = LANG.plugins.fksinfomore.show;
+    var hide_str = LANG.plugins.fksinfomore.hide;
+    
+    var butt = jQuery( this );
+    var content = butt.parent().find('div').eq(0);
+    
+    if (butt.html() === show_str){
         content.slideDown(800);
-        elem.html('hide');
+        butt.html(hide_str);
     }
     else {
         content.slideUp(800);
-        elem.html('show');
+        butt.html(show_str);
     }
     
 }

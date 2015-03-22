@@ -96,7 +96,7 @@ class syntax_plugin_fksinfomore extends DokuWiki_Syntax_Plugin {
     public function render($mode, Doku_Renderer &$renderer, $data) {
         if($mode == 'xhtml') {
             list($state, $payload) = $data;
-            $button = "<button class='fksinfomore_btn'>show</button>";
+            $button = "<button class='fksinfomore_btn'>".$this->getLang('show')."</button>";
             
             switch ($state) {
                 case DOKU_LEXER_ENTER : 				
