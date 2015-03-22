@@ -96,11 +96,11 @@ class syntax_plugin_fksinfomore extends DokuWiki_Syntax_Plugin {
     public function render($mode, Doku_Renderer &$renderer, $data) {
         if($mode == 'xhtml') {
             list($state, $payload) = $data;
-            $button = "<input type='button' id='fksinfomore_btn' value='show'>";
+            $button = "<button class='fksinfomore_btn'>show</button>";
             
             switch ($state) {
                 case DOKU_LEXER_ENTER : 				
-                    $renderer->doc .= "<div id='fksinfomore_wrapper'>".$button."<div id='fksinfomore_content'>";
+                    $renderer->doc .= "<div class='fksinfomore_wrapper'>".$button."<div class='fksinfomore_content'>";
                     break;
                 case DOKU_LEXER_MATCHED :
                     break;

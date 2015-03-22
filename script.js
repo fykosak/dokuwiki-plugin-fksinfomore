@@ -7,16 +7,17 @@
 function fksInfoMore(e) {
     var elem = jQuery( this );
     var content = elem.parent().find('div').eq(0);
-    
-    if (elem.attr('value') == 'show'){
+    if (elem.html() === 'show'){
         content.slideDown(800);
-        elem.attr('value', 'hide');
+        elem.html('hide');
     }
     else {
         content.slideUp(800);
-        elem.attr('value', 'show');
+        elem.html('show');
     }
     
 }
 
-jQuery('input.fksinfomore_btn').click(fksInfoMore);
+jQuery(function(){
+    jQuery('button.fksinfomore_btn').click(fksInfoMore);
+});
