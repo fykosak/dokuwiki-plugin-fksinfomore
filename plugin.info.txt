@@ -1,0 +1,7 @@
+base   fksinfomore
+author Lukas Timko
+email  lukast@fykos.cz
+date   2015-03-22
+name   fksinfomore plugin
+desc   Shows/hides block of HTML.
+url    https://github.com/timkol/fksinfomore.git
