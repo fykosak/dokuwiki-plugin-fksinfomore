@@ -33,6 +33,17 @@ class syntax_plugin_fksinfomore extends DokuWiki_Syntax_Plugin {
     public function getSort() {
         return 198;
     }
+    
+    // override default accepts() method to allow nesting 
+    // - ie, to get the plugin accepts its own entry syntax
+    public function accepts($mode) {
+        // ($mode == 'plugin_fksinfomore')
+        if ($mode == substr(get_class($this), 7)){
+            return true;
+        }
+
+        return parent::accepts($mode);
+    }
 
     /**
      * Connect lookup pattern to lexer.
@@ -57,32 +68,12 @@ class syntax_plugin_fksinfomore extends DokuWiki_Syntax_Plugin {
      * @param Doku_Handler    $handler The handler
      * @return array Data for the renderer
      */
-    public function handle($match, $state, $pos, Doku_Handler &$handler){
-        $data = array($state);
-        switch ($state) {
-            case DOKU_LEXER_ENTER : 
-				// "<spoiler" options ">"
-//				$options = substr($match, 7, -1);
-
-		$title = 'Spoiler';
-//				if (strpos($options, '|') !== False) {
-//					$title = substr($options, strpos($options, '|') + 1);
-//				}
-				
-		$data = array($state, $title);
-		break;
-	    case DOKU_LEXER_MATCHED :
-		break;
-	    case DOKU_LEXER_UNMATCHED :
-		$data = array($state, $match);
-		break;
-	    case DOKU_LEXER_EXIT :
-		break;
-            case DOKU_LEXER_SPECIAL :
-		break;
+    public function handle($match, $state, $pos, Doku_Handler &$handler){        
+        if ($state == DOKU_LEXER_UNMATCHED) {
+            return array($state, $match);
         }
 
-        return $data;
+        return array($state);
     }
 
     /**
